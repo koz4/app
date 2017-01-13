@@ -1,25 +1,29 @@
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-//import React, { Component } from 'react';
-//import { Button } from 'reactstrap';
-//import { Nav, NavItem, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import LayoutWrapper from './modules/LayoutWrapper';
+import React, { Component } from 'react';
+import { Button } from 'reactstrap';
+import { Nav, NavItem, NavDropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap';
+import { Link } from 'react-router';
 //import './App.css';
-import App from './App';
-import About from './modules/About'
-import Repos from './modules/Repos'
+//import App from './App';
+//import About from './modules/About'
+//import Repos from './modules/Repos'
 
-ReactDOM.render((
-  <Router history={browserHistory}>
-    <Route path="/" component={LayoutWrapper}>
-      <IndexRoute component={App}/>
-      <Route path="/about" component={About} />
-      <Route path="/repos" component={Repos} />
-    </Route>
-  </Router>
-), document.getElementById('root'));
+ 
+const LayoutWrapper = (props) => {
+  return (
+    <div className="index">
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/repos">Repos</Link>
+      <div className="container">
+        {props.children}
+      </div>
+    </div>
+  )
+};
+ 
+export default LayoutWrapper;
+
+
 
 // class App extends Component {
 //   constructor(props) {
